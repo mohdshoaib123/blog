@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: api_gateway
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - user-service
+      - blog-service
+      - author-service
+
+  user-service:
+    build: ./services/user
+    env_file:
+      - ./services/user/.env
+    container_name: user_service
+    restart: always
+    expose:
+      - "8000"
+
+  blog-service:
+    build: ./services/blog-s
+    env_file:
+      - ./services/blog-s/.env
+    container_name: blog_service
+    restart: always
+    expose:
+      - "1000"
+
+  author-service:
+    build: ./services/author
+    env_file:
+      - ./services/author/.env
+    container_name: author_service
+    restart: always
+    expose:
+      - "9000"

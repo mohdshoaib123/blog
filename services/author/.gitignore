@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Env files (VERY IMPORTANT)
+.env
+.env.*
+!.env.example
+
+# Build files
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+tmp/
+temp/
+
+# Coverage
+coverage/
+
+# Lock files (optional team decision)
+# package-lock.json
+# yarn.lock
