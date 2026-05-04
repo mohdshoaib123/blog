@@ -1,6 +1,6 @@
 import React, { type ReactNode } from 'react'
 import Navbar from './Navbar';
-import { AppProvider } from '../context/AppContext';
+
 
 interface LayoutProps{
   children:ReactNode;

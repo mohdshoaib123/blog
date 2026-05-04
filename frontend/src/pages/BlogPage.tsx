@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useAppData, blog_service, author_service, type Blog } from "../context/AppContext";
-import { Bookmark, BookmarkCheck, Edit, IdCard, Trash2, User2 } from "lucide-react";
+import { useAppData,  type Blog } from "../context/AppContext";
+import { Bookmark, BookmarkCheck, Edit,  Trash2, User2 } from "lucide-react";
 import toast from 'react-hot-toast'
+
+ 
+
+const author_service = import.meta.env.VITE_AUTHOR_SERVICE;
+const blog_service = import.meta.env.VITE_BLOG_SERVICE;
+
+
+
 
 
 interface comment {
@@ -26,6 +34,7 @@ const BlogPage = () => {
   const [comments, setComments] = useState<comment[]>([]);
   const [comment, setComment] = useState<string>("");
   const [saved, setSaved] = useState(false);
+  console.log(isLoading)
 
   // Fetch Blog
    const fetchSingleBlog = async () => {
@@ -155,7 +164,7 @@ console.log("user._id:", user?._id);
 
           {blog.author === user?._id && (
             <>
-              <button >
+              <button  onClick={()=>navigate(`/edit/${id}`)}>
                 <Edit />
               </button>
               <button onClick={deleteBlog} className="text-red-500">

@@ -1,19 +1,23 @@
 
 import axios from "axios";
-import Layout from "../components/Layout";
+
 import Cookies from "js-cookie";
-import React from "react";
-import { useAppData, user_service } from "../context/AppContext";
+
+import { useAppData,  } from "../context/AppContext";
 import toast from "react-hot-toast";
 import {useGoogleLogin} from "@react-oauth/google"
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+ const user_service=import.meta.env.VITE_USER_SERVICE
+ 
+
+
 
 
 const Login = () => {
   const navigate=useNavigate()
 
-  const {isAuth,setIsAuth,user,setIsLoading,isLoading,setUser}=useAppData()
+  const {isAuth,setIsAuth,setIsLoading,isLoading,setUser}=useAppData()
 
   if(isAuth) navigate('/')
   

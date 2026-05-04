@@ -1,10 +1,17 @@
-import React, { useMemo, useRef, useState } from "react";
+import  { useMemo, useRef, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import JoditEditor from "jodit-react";
 
+
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { blogCategories } from "../context/AppContext";
+const user_service = import.meta.env.VITE_USER_SERVICE;
+const author_service = import.meta.env.VITE_AUTHOR_SERVICE;
+
+
+console.log(user_service);
 
 const AddBlog = () => {
   const editor = useRef(null);
@@ -21,9 +28,9 @@ const AddBlog = () => {
     blogcontent: "",
   });
 
-  const blogCategories = ["Tech", "Business", "Education"]; // dummy
+  
 
-  const author_service = "http://localhost:80"; // change this
+  
 
   const handleInputChange = (e:any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

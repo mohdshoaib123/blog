@@ -1,4 +1,4 @@
-import React from "react";
+
 import BlogCard from "../components/BlogCard";
 import Loading from "../components/Loading";
 import { useAppData } from "../context/AppContext";
@@ -17,8 +17,8 @@ const SavedBlogs = () => {
   );
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-3xl font-bold mt-2">Saved Blogs</h1>
+    <div className="container mx-auto px-4 mt-2">
+      <h1 className="text-3xl font-bold mt-2 mb-4">Saved Blogs</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {filteredBlogs.length > 0 ? (

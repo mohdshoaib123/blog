@@ -1,17 +1,23 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import  { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useParams, useNavigate } from "react-router-dom";
 import JoditEditor from "jodit-react";
+ 
+
+const author_service = import.meta.env.VITE_AUTHOR_SERVICE;
+const blog_service = import.meta.env.VITE_BLOG_SERVICE;
+
+
+
 
 import {
-  author_service,
-  blog_service,
+  
   blogCategories,
   useAppData,
 } from "../context/AppContext";
 
-const EditBlogPage = () => {
+const EditBlog = () => {
   const editor = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -31,13 +37,14 @@ const EditBlogPage = () => {
   });
 
   // ✅ input change
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   // ✅ file change
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: any) => {
     const file = e.target.files[0];
+     
     setFormData({ ...formData, image: file });
   };
 
@@ -56,7 +63,7 @@ const EditBlogPage = () => {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `${blog_service}/blog/api/v1/blog/${id}`
+          `${blog_service}/blog/api/v1/getsingleblog/${id}`
         );
 
         const blog = data.blog;
@@ -82,7 +89,7 @@ const EditBlogPage = () => {
   }, [id]);
 
   // ✅ submit
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -101,7 +108,7 @@ const EditBlogPage = () => {
       const token = Cookies.get("token");
 
       await axios.post(
-        `${author_service}/author/api/v1/blog/${id}`,
+        `${author_service}/author/api/v1/blog/update/${id}`,
         form,
         {
           headers: {
@@ -112,7 +119,7 @@ const EditBlogPage = () => {
 
       alert("Blog updated successfully");
       fetchBlogs();
-      navigate("/blogs");
+      navigate("/");
     } catch (err) {
       alert("Error updating blog");
       console.log(err);
@@ -222,4 +229,4 @@ const EditBlogPage = () => {
   );
 };
 
-export default EditBlogPage;
+export default EditBlog

@@ -3,8 +3,14 @@ import cookies from 'js-cookie'
 import axios from "axios";
 import toast,{Toaster} from 'react-hot-toast'
 
+const user_service = import.meta.env.VITE_USER_SERVICE;
 
-export const blogCategories = [
+const blog_service = import.meta.env.VITE_BLOG_SERVICE;
+
+console.log(user_service);
+
+console.log(user_service)
+export const blogCategories:string[] = [
   "Techonlogy",
   "Health",
   "Finance",
@@ -12,13 +18,11 @@ export const blogCategories = [
   "Education",
   "Entertainment",
   "Study",
+  "sports"
 ];
 
 
 
-export const user_service='http://localhost:80'
-export const  author_service='http://localhost:80'
-export const blog_service='http://localhost:80'
 
 
 export interface User{

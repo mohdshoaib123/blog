@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
-import {user_service, type User} from "../context/AppContext"
+import { type User} from "../context/AppContext"
 
+ const user_service = import.meta.env.VITE_USER_SERVICE;
+
+
+console.log(user_service);
 
 // const user_service = "YOUR_API_BASE_URL"; // replace this
 

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useAppData, user_service } from "../context/AppContext";
+import  { useRef, useState } from "react";
+import { useAppData } from "../context/AppContext";
 import Cookies from "js-cookie";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -7,6 +7,12 @@ import Loading from "../components/Loading";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+const user_service = import.meta.env.VITE_USER_SERVICE;
+
+
+console.log(user_service);
+ 
+
 
 import { useNavigate } from "react-router-dom";
 

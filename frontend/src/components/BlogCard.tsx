@@ -1,9 +1,18 @@
-import React from "react";
+
 import { Calendar } from "lucide-react";
 import moment from "moment";
 
+interface BlogCardProps {
+  image: string;
+  title: string;
+  desc: string;
+  id: string;
+  time: string;
+}
 
-const BlogCard = ({ image, title, desc, id, time }) => {
+
+
+const BlogCard = ({ image, title, desc, id, time }:BlogCardProps) => {
   return (
     <a href={`/blogpage/${id}`} className="block">
       <div className="overflow-hidden rounded-xl transition duration-300 hover:shadow-xl bg-white">
