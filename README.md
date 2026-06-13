@@ -1,6 +1,6 @@
 # Blog App - Microservices Architecture
 
-A full-stack **Blog Application** built using a **Microservices Architecture**, designed for scalability, maintainability, and fault tolerance. The platform consists of three independent backend services: **Author Service**, **User Service**, and **Blog Service**, each handling a specific business domain.
+A full-stack **Blog Application** built using a **Microservices Architecture**, designed for scalability, maintainability, and fault tolerance. The platform consists of three independent backend services: **Author Service**, **User Service**, and **Blog Service**, each handling a specific business domain. authorized and authentication by using(JWT & Google OAuth 2.0).
 
 ## 🚀 Features
 
