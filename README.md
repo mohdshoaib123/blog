@@ -50,12 +50,14 @@ All backend services and infrastructure components are containerized using **Doc
 * React.js
 * Tailwind CSS
 * Axios
+* Typecript
 
 ### Backend
 
 * Node.js
 * Express.js
 * Microservices Architecture
+* Typescript
 
 ### Databases
 
